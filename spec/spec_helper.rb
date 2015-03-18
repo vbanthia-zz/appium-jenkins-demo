@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
 require 'appium_lib'
-require 'capybara-screenshot/rspec'
-
-require 'pry'
 
 # jenkins
 Encoding.default_external = 'UTF-8'
