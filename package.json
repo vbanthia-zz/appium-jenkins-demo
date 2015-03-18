@@ -1,0 +1,9 @@
+{
+  "name": "AppiumJenkinsDemo",
+  "version": "0.0.1",
+  "description": "AppiumJenkinsDemo",
+  "dependencies": {
+    "appium": "1.3.6"
+  },
+  "author": "Vishal Banthia"
+}

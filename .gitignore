@@ -1,0 +1,44 @@
+# Project specific
+rspec_result.html
+
+# Generic
+.DS_Store
+*~
+*.bak
+
+# Node
+node_modules
+
+# Ruby
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+vendor/
+logs/*.log
+screenshots/*
+*.html
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+
+# IDE Specific
+## IntelliJ IDEA
+*.iml
+.idea
+
+# Binaries
+*.apk
+*.app
+*.ipa
