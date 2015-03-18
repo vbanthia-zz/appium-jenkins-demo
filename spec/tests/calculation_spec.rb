@@ -20,14 +20,14 @@ RSpec.describe 'AppiumJenkinsDemo' do
   it 'will add' do
     $driver.find_element(:accessibility_id, 'addButton').click
 
-    sum = $driver.find_element(:accessibility_id, 'resultTextView').value.to_i
-    expect(sum).to eq(x + y) 
+    result = $driver.find_element(:accessibility_id, 'resultTextView').value.to_i
+    expect(result).to eq(x + y) 
   end
 
   it 'will subtract' do
     $driver.find_element(:accessibility_id, 'subButton').click
 
-    sum = $driver.find_element(:accessibility_id, 'resultTextView').value.to_i
-    expect(sum).to eq(x - y) 
+    result = $driver.find_element(:accessibility_id, 'resultTextView').value.to_i
+    expect(result).to eq(x - y) 
   end
 end
