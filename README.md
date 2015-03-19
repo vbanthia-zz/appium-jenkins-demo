@@ -21,12 +21,21 @@ After completing this demo you will be able to create a system in which your app
     - [Appium](#appium) 
     - [Ruby Gems](#ruby-gems)
 - [Run Test Locally](#run-test-locally)
+- [Jenkins Setup](#jenins-setup)
+  - [Install Jenkins](#install-jenkins)
+  - [Install required plugins](#install-required-plugins)
+  - [Create Jobs](#create-jobs)
+  - [Create Pipeline View](#create-pipeline-view)
 
 ## Demo Applications
 This repository contains iOS and Android demo applications in ios and android directory respectively.
 
 ### iOS
 The current iOS demo application is a simple single view calculator app which can add and subtract two numbers. I intentionally put a bug in subtraction feature. Instead of subtracting, it is adding them. Lets see how appium catch this bug.
+
+It looks like this.
+![iOS App Screenshot](images/ios_app_screenshot.png)
+
 
 ### Android
 TODO
@@ -121,3 +130,41 @@ APP_PATH=./ios/build/Debug-iphonesimulator/AppiumJenkinsDemo.app bundle exec rak
 
 You can see the result in html format in result.html file. It will also embed screenshot of the device if test fails.
 
+## Jenkins Setup
+If you do not have any experience in using jenkins, I will suggest you to first read about [it](http://jenkins-ci.org/) before going further.
+
+### Install Jenkins
+There are many ways to install Jenkins for mac osx. But I will recommend you to install it using [Homebrew](http://brew.sh/)
+
+```bash
+brew install jenkins
+```
+
+### Install required plugins
+Following plugins will be required to run this demo project.
+- [Xcode Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Xcode+Plugin)
+- [Github Plugin](https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin)
+- [rbenv Plugin](https://wiki.jenkins-ci.org/display/JENKINS/rbenv+plugin)
+- [Copy Artifact Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Copy+Artifact+Plugin)
+- [Build Pipeline Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Build+Pipeline+Plugin)
+
+If you do not know how to install plugin. Please read [this](https://wiki.jenkins-ci.org/display/JENKINS/Plugins#Plugins-Howtoinstallplugins).
+
+### Create Jobs
+I have uploaded Jenkins jobs config file in [jobs](jobs) directory. You can create jobs by using those config files.
+
+There are three kind of jobs.
+
+- [appium_jenkins_demo_ios_app_simulator](jobs/appium_jenkins_demo_ios_app_simulator)
+  - It will build test application binary for simulator.
+- [appium_jenkins_demo_ios_feature_addition](jobs/appium_jenkins_demo_ios_feature_addition)
+  - It will run test for addition feature.
+- [appium_jenkins_demo_ios_feature_subtraction](jobs/appium_jenkins_demo_ios_feature_subtraction)
+  - It will run test for subtraction feature.
+
+
+### Create Pipeline View
+Finally you can create a pipeline view using build pipeline plugin by selecting initial job as appium_jenkins_demo_ios_app_simulator.
+
+It will look like this
+![PipeLine View Image](images/pipeline_view.png)
