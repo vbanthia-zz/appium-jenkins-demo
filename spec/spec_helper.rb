@@ -22,11 +22,12 @@ RSpec.configure do |config|
 
     ServerManager.start_appium_server
 
+    app_path = ENV['APP_PATH'] || raise('please specify application binary path by setting ENV["APP_PATH"]')
     driver_caps = {
       platformName: :ios,
       deviceName: '',
       newCommandTimeout: '9999', 
-      app: File.expand_path('./apps/AppiumJenkinsDemo.app')
+      app: File.expand_path(app_path)
     }
     Appium::Driver.new(caps: driver_caps).start_driver
   end
